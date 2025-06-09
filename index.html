@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purna Chandra Pavan K | Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0e0e0e;
+      color: #f0f0f0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+
+    
+
+
+
+   nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+    }
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    header.hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8rem 5rem 5rem;
+      background: #0a0a0a;
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      background-repeat: repeat;
+      min-height: 100vh;
+    }
+    .hero-text {
+      max-width: 60%;
+      animation: fadeInUp 1s ease-in-out forwards;
+    }
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text h1 span {
+      color: #f44336;
+    }
+    .hero-text p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+    .hero-text a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #f44336;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .hero-text a:hover {
+      /* background: #ff6659; */
+      background: #00c9a7;
+    }
+    /* .hero-img {
+      max-width: 40%;
+      clip-path: polygon(25% 0%, 100% 0, 100% 100%, 0 100%);
+    }
+    .hero-img img {
+      width: 100%;
+      border-radius: 10px;
+    } */
+
+.hero-img {
+      max-width: 30%;
+
+      /* width: 200px; height: 200px; border-radius: 50%; overflow: hidden; */
+      /* border: 4px solid #00c9a7; margin-bottom: 1rem; */
+      box-shadow: 0 0 30px rgba(0,201,167,0.4);
+      border-radius: 100%;
+    }
+    .hero-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      border: 4px solid #00c9a7; ; 
+      border-radius: 70%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      font-size: 0.9rem;
+      color: #999;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-text, .hero-img {
+        max-width: 100%;
+        text-align: left;
+      }
+      header.hero {
+        flex-direction: column;
+        padding: 6rem 2rem 2rem;
+      }
+      .hero-img {
+        clip-path: none;
+      }
+    }
+     
+
+
+
+
+
+    main {
+      max-width: 1000px; margin: auto; padding: 2rem 1rem;
+    }
+    .section {
+      background: #181818; margin: 2rem 0; padding: 2rem;
+      border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      opacity: 0; transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .section.active {
+      opacity: 1; transform: translateY(0);
+    }
+    .section:hover {
+      background: #222;
+    }
+    .section h2 {
+      text-align: center; color: #00c9a7;
+      font-size: 1.8rem; margin-bottom: 1rem;
+    }
+    .card-container {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;
+    }
+    .card {
+      background: #2a2a2a; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+      display: flex; width: calc(50% - 1rem);
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 120px; height: 120px; object-fit: cover;
+      padding: 1%;
+      flex-shrink: 0;
+      margin: 3%;
+      border: solid, #2a2a2a;
+      border-radius: 3cm;
+      
+    }
+    .card-body {
+      padding: 0.8rem; flex: 1;
+    }
+    .card-body h5 {
+      margin-bottom: 0.5rem; color: #00c9a7;
+      font-size: 1rem;
+    }
+    .card-body p {
+      color: #ddd; font-size: 0.9rem; margin-bottom: 0.4rem;
+    }
+    .card-body small {
+      color: #888; font-size: 0.8rem;
+    }
+    footer {
+      text-align: center; padding: 1.5rem;
+      font-size: 0.9rem; color: #aaa; background: #111;
+    }
+    
+    
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; background: #111;
+        position: absolute; top: 100%; right: 0; padding: 1rem;
+      }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-text p { font-size: 1rem; }
+      .card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Pavan K</div>
+   
+  </nav>
+
+  <header class="hero" id="about">
+    <div class="hero-img"><img src="ProfilePic.jpeg" alt="Profile"/></div>
+    <div class="hero-text">
+      <h1>Hello, I’m <span>Pavan K</span></h1>
+      <ul>
+<li>
+    Data Analyst with advanced skills in SQL, Python, Power BI, and statistical modeling. 
+</li> 
+<li>
+    Strong experience with Salesforce CRM, managed multiple reports and dashboards. 
+</li>        
+<li>
+    My Salesforce experience directly compliments my data analytics skills in providing sales and customer insights.
+</li>
+</ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <div class="card-container">
+        <div class="card">
+          <!-- <img src="https://i.imgur.com/PRvUZ1u.png" alt="Real Estate" /> -->
+          <div class="card-body">
+            <h5>Real Estate Price Prediction</h5>
+            <p>Built regression model achieving 90%+ accuracy on 2,000+ entries.</p>
+            <p>Improved performance by 18% through feature pruning and scaling.</p>
+            <small>Python · Scikit-learn · Pandas</small>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <img src="dashboard.png" alt="Sales Dashboard" /> -->
+          <div class="card-body">
+            <h5>Sales Performance Dashboard</h5>
+            <p>Created executive dashboard tracking 10+ KPIs across 5 regions.</p>
+            <p>Enabled 20% faster decision-making with dynamic YOY filters.</p>
+            <small>Power BI · DAX · SQL</small>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <img src="https://i.imgur.com/809ZqLe.png" alt="Voice Assistant" /> -->
+          <div class="card-body">
+            <h5>Python Voice Assistant</h5>
+            <p>Engineered assistant with 95% command recognition accuracy.</p>
+            <p>Automated 10+ system tasks, reducing manual effort by 60%.</p>
+            <small>Python · SpeechRecognition · pyttsx3</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2>Professional Experience</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src=companylogo.jpeg alt="Bounteous" />
+          <div class="card-body">
+            <h5>Software Engineer – Bounteous Inc.</h5>
+            <p>Maintained over 8 Salesforce dashboards & reports used across sales and operations.</p>
+            <p>Reduced data access issues by 35% via custom security configurations.</p>
+            <small>May 2023 – May 2024, Chennai, India</small>
+          </div>
+        </div>
+        <div class="card">
+          <img src=companylogo.jpeg alt="Internship" />
+          <div class="card-body">
+            <h5>Software Intern – Bounteous Inc.</h5>
+            <p>Developed responsive UI components for internal training platforms.</p>
+            <p>Performed 50+ cross-browser/mobile tests ensuring 99% compatibility.</p>
+            <small>Jan 2023 – May 2023, Chennai, India</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <h2>Skills & Tools</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Languages & Tools" />
+          <div class="card-body">
+            <h5>Languages & Tools</h5>
+            <p>Python | SQL | JavaScript | React.js</p>
+            <p>Pandas | NumPy | Scikit-learn | Matplotlib</p>
+            <small>Power BI | DAX | Power Query | Excel</small>
+          </div>
+        </div>
+        <div class="card">
+          <img src=powerBilogo.jpeg alt="CRM" />
+          <div class="card-body">
+            <h5>CRM & Platforms</h5>
+            <p>Power BI Desktop | Data Integration</p>
+            <p>Salesforce CRM (Custom Objects, Reports, Dashboards, Validation Rules)</p>
+            <small>MS Excel | Data Modeling</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <div class="card-container">
+        <div class="card">
+          <!-- <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="MS Data Science" /> -->
+          <img src="collegelogo.jpeg" alt="" />
+
+          <div class="card-body">
+            <h5>M.S. in Data Science</h5>
+            <p>Saint Peter's University, Jersey City, NJ</p>
+            <small>GPA: 3.83 / 4.00 (Expected May 2026)</small>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <img src="https://cdn-icons-png.flaticon.com/512/3178/3178200.png" alt="B.Tech CSE" /> -->
+                    <img src="unilogo.png" alt="" />
+          <div class="card-body">
+            <h5>B.Tech in Computer Science</h5>
+            <p>SRM Institute of Science and Technology, Chennai, India</p>
+            <small>GPA: 9.11 / 10.00</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:kpurnachandrapavankumar@gmail.com" style="color:#00c9a7;">kpurnachandrapavankumar@gmail.com</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/purnachandrapavank" style="color:#00c9a7;">linkedin.com/in/purnachandrapavank</a></p>
+      <p><i class="fas fa-phone"></i> (551) 358‑6651</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Purna Chandra Pavan K — Designed with precision, powered by creativity.
+  </footer>
+
+  <script>
+    const controller = new ScrollMagic.Controller();
+    document.querySelectorAll('.section').forEach(section => {
+      new ScrollMagic.Scene({ triggerElement: section, triggerHook: 0.9, reverse: false })
+        .on('enter', () => section.classList.add('active'))
+        .addTo(controller);
+    });
+  </script>
+</body>
+</html>
